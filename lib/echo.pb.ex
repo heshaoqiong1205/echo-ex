@@ -20,6 +20,14 @@ defmodule Grpc.Echo.V1.Echo.Service do
   use GRPC.Service, name: "grpc.echo.v1.Echo", protoc_gen_elixir_version: "0.12.0"
 
   rpc :UnaryEcho, Grpc.Echo.V1.EchoRequest, Grpc.Echo.V1.EchoResponse
+
+  rpc :ServerStreamingEcho, Grpc.Echo.V1.EchoRequest, stream(Grpc.Echo.V1.EchoResponse)
+
+  rpc :ClientStreamingEcho, stream(Grpc.Echo.V1.EchoRequest), Grpc.Echo.V1.EchoResponse
+
+  rpc :BidirectionalStreamingEcho,
+      stream(Grpc.Echo.V1.EchoRequest),
+      stream(Grpc.Echo.V1.EchoResponse)
 end
 
 defmodule Grpc.Echo.V1.Echo.Stub do

@@ -16,7 +16,8 @@ defmodule EchoEx.MixProject do
     [
       {:rexbug, ">= 2.0.0-rc1"},
       {:grpc, "~> 0.7.0"},
-      {:protobuf, "~> 0.11"}
+      {:protobuf, "~> 0.11"},
+      {:ranch, "~> 2.1", override: true}
     ]
   end
 end
